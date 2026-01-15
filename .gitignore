@@ -1,0 +1,11 @@
+.idea
+.DS_Store
+build/
+generated/
+_deps/
+CMakeFiles
+pico_flash_region.ld
+picotool
+Makefile
+CmakeCache.txt
+cmake_install.cmake

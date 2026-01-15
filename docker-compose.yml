@@ -1,0 +1,7 @@
+services:
+  pico_sdk_worker:
+    container_name: pico_sdk_worker
+    build: .
+    restart: "no"
+    volumes:
+      - .:/home
