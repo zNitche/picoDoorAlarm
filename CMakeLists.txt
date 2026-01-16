@@ -17,6 +17,10 @@ add_executable(hello_alarm
 
 target_link_libraries(hello_alarm pico_stdlib)
 
+if (PICO_CYW43_SUPPORTED)
+    target_link_libraries(hello_alarm pico_cyw43_arch_none)
+endif()
+
 pico_enable_stdio_usb(hello_alarm 1)
 pico_enable_stdio_uart(hello_alarm 0)
 
