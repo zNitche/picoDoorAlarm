@@ -1,8 +1,8 @@
 cmake_minimum_required(VERSION 3.13...3.27)
 
-# initialize pico-sdk from submodule
+# initialize the SDK based on PICO_SDK_PATH
 # note: this must happen before project()
-include(pico-sdk/pico_sdk_init.cmake)
+include(pico_sdk_import.cmake)
 
 project(picoDoorAlarm)
 
@@ -11,13 +11,13 @@ pico_sdk_init()
 
 # rest of your project
 
-add_executable(hello_world
-            hello_world.c
+add_executable(hello_alarm
+            hello_alarm.c
             )
 
-target_link_libraries(hello_world pico_stdlib)
+target_link_libraries(hello_alarm pico_stdlib)
 
-pico_enable_stdio_usb(hello_world 1)
-pico_enable_stdio_uart(hello_world 0)
+pico_enable_stdio_usb(hello_alarm 1)
+pico_enable_stdio_uart(hello_alarm 0)
 
-pico_add_extra_outputs(hello_world)
+pico_add_extra_outputs(hello_alarm)

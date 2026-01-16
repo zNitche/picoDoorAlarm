@@ -4,4 +4,5 @@ services:
     build: .
     restart: "no"
     volumes:
-      - .:/home
+      - .:/home/pico_sdk_worker
+      - ~/SDK/pico-sdk/2.2.0:/home/SDK/pico-sdk/2.2.0
