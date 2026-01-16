@@ -1,8 +1,7 @@
-cmake_minimum_required(VERSION 3.13...3.27)
+cmake_minimum_required(VERSION 3.27)
 
-# initialize the SDK based on PICO_SDK_PATH
-# note: this must happen before project()
-include(pico_sdk_import.cmake)
+# initialize the SDK
+include($ENV{PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 
 project(picoDoorAlarm)
 
@@ -11,17 +10,15 @@ pico_sdk_init()
 
 # rest of your project
 
-add_executable(hello_alarm
-            hello_alarm.c
-            )
+add_executable(main src/main.c)
 
-target_link_libraries(hello_alarm pico_stdlib)
+target_link_libraries(main pico_stdlib)
 
 if (PICO_CYW43_SUPPORTED)
-    target_link_libraries(hello_alarm pico_cyw43_arch_none)
+    target_link_libraries(main pico_cyw43_arch_none)
 endif()
 
-pico_enable_stdio_usb(hello_alarm 1)
-pico_enable_stdio_uart(hello_alarm 0)
+pico_enable_stdio_usb(main 1)
+pico_enable_stdio_uart(main 0)
 
-pico_add_extra_outputs(hello_alarm)
+pico_add_extra_outputs(main)
