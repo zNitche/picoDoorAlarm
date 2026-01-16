@@ -13,16 +13,18 @@ git submodule update --init
 cp ~/SDK/pico-sdk/2.2.0/external/pico_sdk_import.cmake .
 ```
 
-```
-docker compose build --no-cache
-docker compose run --rm pico_sdk_worker
-```
+Open devcontainer
 
 ```
 cd /home/pico_sdk_worker
 cmake -S . -B build
+
+or
+
+cmake -DPICO_BOARD=pico_w -S . -B build
+
 cd build
-make -j 8
+make -j 16
 ```
 
 ```
